@@ -23,7 +23,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Hello World
-        run: echo Hello, world!
+        run: echo Hello, world! && exit 1
 
       - name: "Sending SMS Notification"
         if: ${{ failure() }}
