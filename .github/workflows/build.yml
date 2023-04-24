@@ -28,7 +28,7 @@ jobs:
       - name: "Sending SMS Notification"
         uses: twilio-labs/actions-sms@v1
         with:
-          fromPhoneNumber: ${{ secrets.FROM_NUMBER }}'
+          fromPhoneNumber: ${{ secrets.FROM_NUMBER }}
           toPhoneNumber: ${{ secrets.TO_NUMBER }}
           message: "Hello from Twilio"
         env:
