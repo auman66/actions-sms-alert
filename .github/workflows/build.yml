@@ -26,11 +26,12 @@ jobs:
         run: echo Hello, world!
 
       - name: "Sending SMS Notification"
+        if: ${{ failure() }}
         uses: twilio-labs/actions-sms@v1
         with:
           fromPhoneNumber: ${{ secrets.FROM_NUMBER }}
           toPhoneNumber: ${{ secrets.TO_NUMBER }}
-          message: "Hello from Twilio"
+          message: ${{ github.job }} job of ${{ github.repository }} has a ${{ job.status }}
         env:
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY }}
