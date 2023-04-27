@@ -25,6 +25,7 @@ jobs:
         run: echo Hello, world!
 
       - name: "Sending SMS Notification"
+        if: ${{ failure () }}
         uses: twilio-labs/actions-sms@v1
         with:
           fromPhoneNumber: ${{ secrets.FROM_NUMBER }}
