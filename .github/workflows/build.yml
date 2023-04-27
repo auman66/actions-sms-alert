@@ -22,7 +22,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Hello World
-        run: echo Hello, world!
+        run: echo Hello, world! && exit 1
 
       - name: "Sending SMS Notification"
         if: ${{ failure () }}
@@ -30,7 +30,7 @@ jobs:
         with:
           fromPhoneNumber: ${{ secrets.FROM_NUMBER }}
           toPhoneNumber: ${{ secrets.TO_NUMBER }}
-          message: "Ahoy from Twilio"
+          message: "Ahoy number two, you are a failure"
         env:
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY }}
